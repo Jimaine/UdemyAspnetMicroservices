@@ -1,0 +1,36 @@
+docker ps // show all Docker instances running
+docker pull mongo // pull container with name mongo
+docker run -d -p 27017:27017 --name shopping-mongo mongo // run Mongo in Docker
+docker logs -f shopping-mongo // show logfiles of mongo
+docker exec -it shopping-mongo /bin/bash // opens an interactive Terminal inside the vs-Terminal for mongo commands
+
+ls // list of containing containers
+mongo // now run mongo commands
+show dbs // show alle databases
+show databases // show alle databases
+use CatalogDb // Create new Database and switch to it
+db.createCollection('tableName') // Create a new Collection/Table inside the db
+db.Products.insertMany(
+	[
+		{
+			"Name": "Asus Laptop",
+			"Category": "Computers",
+			"Summary": "Summary",
+			"Description": "Description",
+			"ImageFile": "ImageFile",
+			"Price": 54.93,
+		},
+		{
+			"Name": "HP Laptop",
+			"Category": "Computers",
+			"Summary": "Summary",
+			"Description": "Description",
+			"ImageFile": "ImageFile",
+			"Price": 88.93,
+		}
+	]
+) 
+db.Products.insertMany([{"Name": "Asus Laptop","Category": "Computers","Summary": "Summary","Description": "Description","ImageFile": "ImageFile","Price": 54.93,},{"Name": "HP Laptop","Category": "Computers","Summary": "Summary","Description": "Description","ImageFile": "ImageFile","Price": 88.93,}])
+db.Products.find({}).pretty() // no filtering in {}
+db.Products.remove({})
+show collections // show all Collecions (Products)
