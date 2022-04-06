@@ -70,7 +70,7 @@ namespace Catalog.API.Controllers
 
         [HttpPost]
         [ProducesResponseType(typeof(Product), (int)HttpStatusCode.OK)]
-        public async Task<ActionResult<Product>> GetProduct([FromBody] Product productToInsert)
+        public async Task<ActionResult<Product>> CreateProduct([FromBody] Product productToInsert)
         {
             await _productRespository.CreateProduct(productToInsert);
 
