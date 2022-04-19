@@ -38,8 +38,8 @@ namespace Basket.API.Controllers
             {
                 CouponModel couponModel = await _discountGrpcService.GetDiscount(item.ProductName);
                 item.Price -= couponModel.Amount;
-
             }
+
             return Ok(await _basketRepository.SetBasket(shoppingCart));
         }
 
